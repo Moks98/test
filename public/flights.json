@@ -1,0 +1,6 @@
+[
+    { "id": 1, "number": "AI101", "destination": "New York", "departureTime": "10:00 AM" },
+    { "id": 2, "number": "AI102", "destination": "London", "departureTime": "12:00 PM" },
+    { "id": 3, "number": "AI103", "destination": "Sydney", "departureTime": "2:00 PM" }
+  ]
+  
