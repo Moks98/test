@@ -1,18 +1,22 @@
 import React from "react";
 import { useAuth } from "./Components/AuthContext/AuthContext";
-import { Navigate, Route } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectedRoute = ({ element: Component, role, ...rest }) => {
+const ProtectedRoute = ({ role }) => {
   const { user, role: userRole } = useAuth();
 
-  return (
-    <Route
-      {...rest}
-      element={
-        user && userRole === role ? <Component /> : <Navigate to="/login" />
-      }
-    />
-  );
+  console.log("User:", user);
+  console.log("User Role:", userRole);
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+
+  if (userRole !== role) {
+    return <Navigate to="/login" />;
+  }
+
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

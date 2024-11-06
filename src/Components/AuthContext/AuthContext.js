@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { auth } from "../../firebaseConfig"; // Adjust the path as needed
+import { auth } from "../../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -12,7 +12,8 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       if (user) {
-        setRole("admin");
+        //
+        setRole("staff");
       } else {
         setRole(null);
       }
